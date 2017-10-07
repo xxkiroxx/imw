@@ -181,17 +181,71 @@ Por último solo debemos reiniciar el Servicio nginx
 
 ### Debe pedir usuario/clave. Los datos son:<a name="id12"></a>
 
+Lo primero que tenemos que crear es la siguiente carpeta.
+
+![imagen](img/018.png)
+
+También debemos crear un index.html
+
+![imagen](img/019.png)
+
+La muestra del html
+
+![imagen](img/020.png)
+
+
 #### USUARIO: usuario1<a name="id13"></a>
+
+Para crear el usuario solo tenemos que crear un fichero llamado .htpasswd y escribimos dentro usuario:"aqui sería la contraseña".
+
+
+![imagen](img/022.png)
+
 
 #### CLAVE: aula108<a name="id14"></a>
 
+Tenemos que crear con el siguiente comando una contraseña cifrada.
+
+![imagen](img/021.png)
+
+Realizamos un ls -la para ver si se creo correctamente le fichero.
+
+![imagen](img/023.png)
+
+### Modificamos un virtual Host existente.
+
+Solo tenemos que abrir el fichero con un edit y escribimos los siguientes parámetros.
+
+![imagen](img/024.png)
+
+Luego tenemos que crear un enlace simbólico, pero en este caso nosotros ya lo teniamos creado.
+
+![imagen](img/025.png)
+
+Solo debemos ejecutar el comando.
+
+    sudo systemctl reload nginx
+
+
 ### Debe mostrar una página web con el nombre de todo el alumnado de clase.<a name="id15"></a>
 
+Abrimos un navegador escribimos la página y debe salir una autenticación para usuarios.
+
+![imagen](img/000.png)
+
 ### Se debe prohibir explícitamente el acceso al fichero .htpasswd<a name="id16"></a>
+
+Para prohibir el acceso al fichero .htpasswd debemos escribir los siguientes parámetros en el fichero de virtual host llamado ssl
+
+![imagen](img/026.png)
 
 ## Sitio web 4
 
 ### http://redirect.alu5906.me<a name="id17"></a>
+
+Lo primero que tenemos que crear son las carpetas.
+
+![imagen](img/027.png)
 
 ### Se debe redirigir cualquier petición de este dominio a http://target.alu5906.me<a name="id18"></a>
 
@@ -205,7 +259,43 @@ Por último solo debemos reiniciar el Servicio nginx
 
 ### Al acceder a http://target.alu5906.me se debe mostrar la página web siguiente initializr-verekia-4.0.zip.<a name="id22"></a>
 
+Copiamos la url del fichero para descargar y escribimos el siguiente comando.
+
+![imagen](img/028.png)
+
+La página debe quedar de la siguiente manera:
+
+![imagen](img/34.png)
+
+
 #### Para copiar y descomprimir el fichero initializr.zip se recomienda usar alguna de las siguientes herramientas: curl, wget, scp, unzip.<a name="id23"></a>
+
+Utilizamos el comando unzip para descomprimir el fichero.
+
+![imagen](img/029.png)
+
+Con el comando scp subimos la carpeta completa al servidor cloud.
+
+![imagen](img/030.png)
+
+Comprobamos que se subio correctamente la carpeta
+
+![imagen](img/031.png)
+
+Ya tenemos las carpetas creada y el fichero subido al servidor. Solo falta crear un virtual host.
+
+En este caso nosotros ya tenemos varios virtual host creado y lo que realizó es copiar un fichero de virtual host con un nombre diferente y lo abro para modificar los nuevos parámetros.
+
+![imagen](img/032.png)
+
+Parámetros que debemos modificar tanto en el redirect como en el target.
+
+![imagen](img/35.png)
+
+Solo nos falta crear los enlace simbólico de cada uno.
+
+![imagen](img/033.png)
+
 
 ### Los log files deben ser:<a name="id24"></a>
 
