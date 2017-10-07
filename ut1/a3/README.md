@@ -110,8 +110,6 @@ Solo nos falta reiniciar el servicio.
     sudo systemctl reload nginx
 
 
-![imagen](img/005.png)
-
 
 ### http://imw.alu5906.me/mec/<a name="id5"></a>
 
@@ -178,6 +176,8 @@ Por último solo debemos reiniciar el Servicio nginx
 ## Sitio web 3<a name="id10"></a>
 
 ### https://ssl.alu5906.me/students/ (ojo, es https!)<a name="id11"></a>
+
+![imagen](img/036.png)
 
 ### Debe pedir usuario/clave. Los datos son:<a name="id12"></a>
 
