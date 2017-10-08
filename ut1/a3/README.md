@@ -349,3 +349,7 @@ Por último solo tenemos que modificar el fichero de virtual host, en la siguien
 Escribimos los siguientes parámetros.
 
 ![imagen](img/045.png)
+
+Cambiar permisos de la carpeta y fichero log
+
+![imagen](img/046.png)
