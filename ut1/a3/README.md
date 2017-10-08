@@ -327,4 +327,25 @@ Solo nos falta crear los enlace simbólico de cada uno.
 
 #### /var/log/nginx/redirect/access.log<a name="id25"></a>
 
+Lo primero tenemos que crear una carpeta.
+
+![imagen](img/043.png)
+
+Luego solo tenemos que crear el fichero.
+
+![imagen](img/044.png)
+
 #### /var/log/nginx/redirect/error.log<a name="id26"></a>
+
+Creamos el fichero para el error.log
+
+![imagen](img/044.png)
+
+
+Por último solo tenemos que modificar el fichero de virtual host, en la siguiente ruta.
+
+    /etc/nginx/sities-available/redirect
+
+Escribimos los siguientes parámetros.
+
+![imagen](img/045.png)
