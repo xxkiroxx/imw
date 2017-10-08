@@ -54,7 +54,7 @@
 
             - [/var/log/nginx/redirect/error.log](#id27)
 
-![imagen](img/portada.png)
+
 
 
 ## Sitio web 1 <a name="id1"></a>
@@ -183,6 +183,18 @@ Por último solo debemos reiniciar el Servicio nginx
 
     sudo systemctl reload nginx
 
+Tenemos otra opción a la hora de colocar la ruta de /var/lib en el fichero de virtual host.
+
+Primero creamos una carpeta en webapps/varlib.
+
+Luego solo tenemos que crear un enlace simbólico de la ruta /var/lib a la carpeta creada en /home/alu5906/webapps/varlib.
+
+ ![imagen](img/041.png)
+
+Modificamos el fichero de virtual host
+
+ ![imagen](img/042.png)
+
 ## Sitio web 3<a name="id10"></a>
 
 ### https://ssl.alu5906.me/students/ (ojo, es https!)<a name="id11"></a>
@@ -245,7 +257,7 @@ Solo debemos ejecutar el comando.
 
 Abrimos un navegador escribimos la página y debe salir una autenticación para usuarios.
 
-![imagen](img/000.png)
+![imagen](img/036.png)
 
 ### Se debe prohibir explícitamente el acceso al fichero .htpasswd<a name="id16"></a>
 
