@@ -129,6 +129,16 @@ copiamos el index.html de imw y lo metemos en un nuevo index.html y lo modificam
 
 Ya tenemos la estructura de la carpeta y el index.html.
 
+El fichero pdf está en el moodle, voy a realizar dos enlaces, uno con la dirección del moodle y la otra descargo el pdf y lo subo en el cloud. Con su enlace local.
+
+Primero tenemos subir el fichero con el comando scp.
+
+![imagen](img/038.png)
+
+y modificamos el html para la ruta del pdf.
+
+![imagen](img/040.png)
+
 ## Crear Virtual Host
 
 Tenemos que ir a la ruta siguiente para crear un virtual host.
@@ -178,6 +188,10 @@ Por último solo debemos reiniciar el Servicio nginx
 ### https://ssl.alu5906.me/students/ (ojo, es https!)<a name="id11"></a>
 
 ![imagen](img/036.png)
+
+Se muestra los alumnos
+
+![imagen](img/037.png)
 
 ### Debe pedir usuario/clave. Los datos son:<a name="id12"></a>
 
