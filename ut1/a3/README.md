@@ -34,16 +34,11 @@
 
 - [Sitio Web 4](#id17)
 
-    - [http://redirect.alu5906.me](#id1)
+    - [http://redirect.alu5906.me](#id18)
 
         - [Se debe redirigir cualquier petición de este dominio a http://target.alu5906.me](#id19)
 
-            - [http://redirect.alu5906.me/test/ -> http://target.alu5906.me](#id20)
-
-            - [http://www.redirect.alu5906.me/probando/ -> http://target.alu5906.me](#id21)
-
-            - [http://www.redirect.alu5906.me/hola/ -> http://target.alu5906.me](#id22)
-
+            
         - [Al acceder a http://target.alu5906.me se debe mostrar la página web siguiente initializr-verekia-4.0.zip.](#id23)
 
             - [Para copiar y descomprimir el fichero initializr.zip se recomienda usar alguna de las siguientes herramientas: curl, wget, scp, unzip.](#id24)
@@ -275,11 +270,11 @@ Lo primero que tenemos que crear son las carpetas.
 
 ### Se debe redirigir cualquier petición de este dominio a http://target.alu5906.me<a name="id18"></a>
 
-    - [http://redirect.alu5906.me/test/](http://redirect.alu5906.me/test/) -> [http://target.alu5906.me](http://target.alu5906.me)
+ [http://redirect.alu5906.me/test/](http://redirect.alu5906.me/test/) -> [http://target.alu5906.me](http://target.alu5906.me)
 
-    - [http://www.redirect.alu5906.me/probando/](http://www.redirect.alu5906.me/probando/) -> [http://target.alu5906.me](http://target.alu5906.me)
+ [http://www.redirect.alu5906.me/probando/](http://www.redirect.alu5906.me/probando/) -> [http://target.alu5906.me](http://target.alu5906.me)
 
-    - [http://www.redirect.alu5906.me/hola/](http://www.redirect.alu5906.me/hola/) -> [http://target.alu5906.me](http://target.alu5906.me)
+ [http://www.redirect.alu5906.me/hola/](http://www.redirect.alu5906.me/hola/) -> [http://target.alu5906.me](http://target.alu5906.me)
 
 
 ### Al acceder a http://target.alu5906.me se debe mostrar la página web siguiente initializr-verekia-4.0.zip.<a name="id22"></a>
