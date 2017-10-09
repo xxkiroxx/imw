@@ -275,12 +275,11 @@ Lo primero que tenemos que crear son las carpetas.
 
 ### Se debe redirigir cualquier petición de este dominio a http://target.alu5906.me<a name="id18"></a>
 
+    - [http://redirect.alu5906.me/test/](http://redirect.alu5906.me/test/) -> [http://target.alu5906.me](http://target.alu5906.me)
 
-#### http://redirect.alu5906.me/test/ -> http://target.alu5906.me<a name="id19"></a>
+    - [http://www.redirect.alu5906.me/probando/](http://www.redirect.alu5906.me/probando/) -> [http://target.alu5906.me](http://target.alu5906.me)
 
-#### http://www.redirect.alu5906.me/probando/ -> http://target.alu5906.me<a name="id20"></a>
-
-#### http://www.redirect.alu5906.me/hola/ -> http://target.alu5906.me<a name="id21"></a>
+    - [http://www.redirect.alu5906.me/hola/](http://www.redirect.alu5906.me/hola/) -> [http://target.alu5906.me](http://target.alu5906.me)
 
 
 ### Al acceder a http://target.alu5906.me se debe mostrar la página web siguiente initializr-verekia-4.0.zip.<a name="id22"></a>
@@ -357,3 +356,7 @@ Escribimos los siguientes parámetros.
 Cambiar permisos de la carpeta y fichero log
 
 ![imagen](img/046.png)
+
+Comprobamos que el fichero access.log funciona.
+
+![imagen](img/047.png)
