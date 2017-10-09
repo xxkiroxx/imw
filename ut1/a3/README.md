@@ -359,3 +359,7 @@ Cambiar permisos de la carpeta y fichero log
 Comprobamos que el fichero access.log funciona.
 
 ![imagen](img/047.png)
+
+Comprobamos que el fichero error.log funciona
+
+![imagen](img/049.png)
