@@ -38,7 +38,7 @@
 
         - [Se debe redirigir cualquier petición de este dominio a http://target.alu5906.me](#id19)
 
-            
+
         - [Al acceder a http://target.alu5906.me se debe mostrar la página web siguiente initializr-verekia-4.0.zip.](#id23)
 
             - [Para copiar y descomprimir el fichero initializr.zip se recomienda usar alguna de las siguientes herramientas: curl, wget, scp, unzip.](#id24)
@@ -259,6 +259,10 @@ Abrimos un navegador escribimos la página y debe salir una autenticación para 
 Para prohibir el acceso al fichero .htpasswd debemos escribir los siguientes parámetros en el fichero de virtual host llamado ssl
 
 ![imagen](img/026.png)
+
+Por lo tanto al acceder desde el navegador.
+
+![imagen](img/048.png)
 
 ## Sitio web 4
 
