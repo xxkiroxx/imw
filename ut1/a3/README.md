@@ -314,9 +314,13 @@ En este caso nosotros ya tenemos varios virtual host creado y lo que realizó es
 
 ![imagen](img/032.png)
 
-Parámetros que debemos modificar tanto en el redirect como en el target.
+Parámetros que debemos modificar tanto en el redirect.
 
 ![imagen](img/35.png)
+
+Parámetros que debemos modificar tanto en el target.
+
+![imagen](img/035.png)
 
 Solo nos falta crear los enlace simbólico de cada uno.
 
