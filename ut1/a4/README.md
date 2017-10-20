@@ -41,7 +41,7 @@ Comprobación del fichero está subido en el cloud.
 
 Cambiamos el nombre del demo_php a php.
 
-~~~
+```ruby
 alu5906@cloud:~$ mv demo_php/ php
 alu5906@cloud:~$ ls -l
 total 1588
@@ -55,12 +55,12 @@ drwxr-xr-x 2 alu5906 alu5906    4096 oct  2 12:03 shared
 drwxrwxr-x 8 alu5906 alu5906    4096 oct  8 13:14 webapps
 alu5906@cloud:~$
 
-~~~
+```
 ### 1.2 Creamos un fichero de Virtual Host<a name="3"></a>
 
 Solo tenemos que crear un fichero nuevo llamado `php` en la ruta `/etc/nginx/sities-available`
 
-~~~
+```ruby
 alu5906@cloud:~$ sudo nano /etc/nginx/sites-available/php
 [sudo] password for alu5906:
 alu5906@cloud:~$ cat /etc/nginx/sites-available/php
@@ -74,13 +74,13 @@ server {
 	}
 }
 alu5906@cloud:~$ sudo ln -s /etc/nginx/sites-available/php /etc/nginx/sites-enabled/
-~~~
+```
 
 ![img](img/004.png)
 
 - Necesitamos reiniciar el servicio
 
-~~~
+```ruby
 alu5906@cloud:~$ sudo systemctl reload nginx.service alu5906@cloud:~$ sudo systemctl status nginx.service
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: en
@@ -101,7 +101,7 @@ oct 20 14:29:21 cloud systemd[1]: Reloaded A high performance web server and a r
 Warning: Journal has been rotated since unit was started. Log output is incomple
 lines 1-17
 
-~~~
+```
 
 
 
@@ -117,7 +117,7 @@ Ya tenemos instalado de anterior prácticas el entorno virtual llamado `virtuale
 
 Creamos la carpeta `now`.
 
-~~~
+```ruby
 alu5906@cloud:~$ virtualenv .virtualenvs/now
 Using base prefix '/usr'
 New python executable in /home/alu5906/.virtualenvs/now/bin/python3.6
@@ -128,13 +128,13 @@ alu5906@cloud:~$ source .virtualenvs/now/bin/activate
 Python 3.6.3
 (now) alu5906@cloud:~$
 
-~~~
+```
 
 ![img](img/006.png)
 
 - Instalación del gestor de paquetes de python `pip`
 
-~~~
+```ruby
 
 (now) alu5906@cloud:~$ pip install uwsgi
 Collecting uwsgi
@@ -142,11 +142,11 @@ Installing collected packages: uwsgi
 Successfully installed uwsgi-2.0.15
 (now) alu5906@cloud:~$
 
-~~~
+```
 
 - Instalación de mini-framework para el desarrollo web `flask`
 
-~~~
+```ruby
 
 (now) alu5906@cloud:~$ pip install flask
 Collecting flask
@@ -163,11 +163,11 @@ Installing collected packages: Werkzeug, itsdangerous, click, MarkupSafe, Jinja2
 Successfully installed Jinja2-2.9.6 MarkupSafe-1.0 Werkzeug-0.12.2 click-6.7 flask-0.12.2 itsdangerous-0.24
 (now) alu5906@cloud:~$
 
-~~~
+```
 
 - Creación de la carpeta now en `/home/alu5906/now`
 
-~~~
+```ruby
 
 (now) alu5906@cloud:~$ mkdir now
 (now) alu5906@cloud:~$ cd now/
@@ -189,11 +189,11 @@ def hello():
         now=datetime.datetime.now().strftime("%H:%mh")
     )
 (now) alu5906@cloud:~/now$
-~~~
+```
 
 - Con el siguiente comando `uwsgi --socket 0.0.0.0:8080 --protocol=http -w main:app` comprobamos que tenemos funcionando la aplicación.
 
-~~~
+```ruby
 (now) alu5906@cloud:~/now$ uwsgi --socket 0.0.0.0:8080 --protocol=http -w main:app
 *** Starting uWSGI 2.0.15 (64bit) on [Fri Oct 20 15:00:05 2017] ***
 compiled with version: 5.4.0 20160609 on 16 October 2017 12:50:48
@@ -237,13 +237,13 @@ spawned uWSGI worker 1 (and the only) (pid: 5251, cores: 1)
 ^C(now) alu5906@cloud:~/now$
 
 
-~~~
+```
 
 ![img](img/007.png)
 
 ### 2.2 Configuración fichero uWSGI<a name="7"></a>
 
-~~~
+```ruby
 
 (now) alu5906@cloud:~/now$ nano uwsgi.ini
 (now) alu5906@cloud:~/now$ cat uwsgi.ini
@@ -256,11 +256,11 @@ socket = /tmp/now.sock
 chmod-socket = 666
 vacuum = true
 (now) alu5906@cloud:~/now$
-~~~
+```
 
 - Creación de fichero `run.sh`.
 
-~~~
+```ruby
 (now) alu5906@cloud:~/now$ nano uwsgi.ini
 (now) alu5906@cloud:~/now$ nano run.py
 (now) alu5906@cloud:~/now$ ls
@@ -275,14 +275,14 @@ source /home/alu5906/.virtualenvs/now/bin/activate
 uwsgi --ini /home/alu5906/now/uwsgi.ini
 (now) alu5906@cloud:~/now$
 
-~~~
+```
 
 ### 2.3 Creación de Virtual Host<a name="8"></a>
 
 Vamos a crear un virtual host para nuesta aplicación de python y que responda a la petición de la url `[http://now.alu5906.me](http://now.alu5906.me)`
 
 
-~~~
+```ruby
 (now) alu5906@cloud:~/now$ sudo nano /etc/nginx/sites-available/now
 [sudo] password for alu5906:
 (now) alu5906@cloud:~/now$ deactivate
@@ -323,7 +323,7 @@ alu5906@cloud:~/now$ ls -l /etc/nginx/sites-enabled/now
 lrwxrwxrwx 1 root root 30 oct 20 15:19 /etc/nginx/sites-enabled/now -> /etc/nginx/sites-available/now
 alu5906@cloud:~/now$
 
-~~~
+```
 
 - Comprobamos la página sin ejecutar el fichero `run.sh`
 
@@ -338,7 +338,7 @@ alu5906@cloud:~/now$
 
 El programa que tenemos en la ruta `/home/alu5906/now/main.py` queremos con el programa de supervisor gestione cuando se debe parar, cuando debe iniciar.
 
-~~~
+```ruby
 alu5906@cloud:~/now$ sudo nano /etc/supervisor/conf.d/now.conf
 alu5906@cloud:~/now$ sudo cat /etc/supervisor/conf.d/now.conf
 [program:now]
@@ -352,7 +352,7 @@ stderr_logfile = /home/alu5906/now/now.err.log
 stdout_logfile = /home/alu5906/now/now.out.log
 alu5906@cloud:~/now$
 
-~~~
+```
 
 - En caso de que tengamos problemas al ejecutar el siguiente comando `supervisorctl status`, el mensaje sea problemas de permisos. Debemos realizar los siguientes paso.
 
@@ -360,7 +360,7 @@ alu5906@cloud:~/now$
 
 - Modificar el fichero de configuración de `supervisord.conf`, solo debemos añadir dos líneas, fijarse en el código de abajo.
 
-~~~
+```ruby
 alu5906@cloud:~/now$ sudo groupadd supervisorctl
 alu5906@cloud:~$ sudo cat /etc/supervisor/supervisord.conf | grep chmod
 chmod=0770                       ; sockef file mode (default 0700)
@@ -368,11 +368,11 @@ alu5906@cloud:~$ sudo cat /etc/supervisor/supervisord.conf | grep chown
 chown=root:supervisor		; grupo 'supervisor' para usuarios no privilegiados
 alu5906@cloud:~$
 
-~~~
+```
 
 - Al final de terminar todo es importante reiniciar el servicio de supervisor.
 
-~~~
+```ruby
 alu5906@cloud:~$ sudo systemctl restart supervisor.service
 alu5906@cloud:~$ sudo systemctl status supervisor.service
 ● supervisor.service - Supervisor process control system for UNIX
@@ -394,7 +394,7 @@ alu5906@cloud:~$ sudo systemctl status supervisor.service
            └─5683 uwsgi --ini /home/alu5906/hellopython/uwsgi.ini
 alu5906@cloud:~$
 
-~~~
+```
 
 $ supervisorctl status
 
