@@ -60,7 +60,7 @@ alu5906@cloud:~$
 
 Solo tenemos que crear un fichero nuevo llamado `php` en la ruta `/etc/nginx/sities-available`
 
-```ruby
+```console
 alu5906@cloud:~$ sudo nano /etc/nginx/sites-available/php
 [sudo] password for alu5906:
 alu5906@cloud:~$ cat /etc/nginx/sites-available/php
