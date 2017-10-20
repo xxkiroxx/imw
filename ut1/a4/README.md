@@ -282,7 +282,7 @@ uwsgi --ini /home/alu5906/now/uwsgi.ini
 Vamos a crear un virtual host para nuesta aplicación de python y que responda a la petición de la url `[http://now.alu5906.me](http://now.alu5906.me)`
 
 
-```ruby
+```console
 (now) alu5906@cloud:~/now$ sudo nano /etc/nginx/sites-available/now
 [sudo] password for alu5906:
 (now) alu5906@cloud:~/now$ deactivate
