@@ -415,3 +415,7 @@ $ supervisorctl stop now
 $ supervisorctl restart now
 
 ![img](img/015.png)
+
+- Se comprueba que la página del sitio Web 1 [http://php.alu5906.me](http://php.alu5906.me) funcione correctamente con el programa de python.
+
+- Se comprueba que la página del sitio Web 2 [http://now.alu5906.me](http://now.alu5906.me) funcione correctamente con el programa de python.
