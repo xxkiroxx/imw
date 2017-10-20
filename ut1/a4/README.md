@@ -41,7 +41,7 @@ Comprobación del fichero está subido en el cloud.
 
 Cambiamos el nombre del demo_php a php.
 
-```ruby
+```python
 alu5906@cloud:~$ mv demo_php/ php
 alu5906@cloud:~$ ls -l
 total 1588
