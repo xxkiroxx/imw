@@ -81,7 +81,8 @@ alu5906@cloud:~$ sudo ln -s /etc/nginx/sites-available/php /etc/nginx/sites-enab
 - Necesitamos reiniciar el servicio
 
 ```console
-alu5906@cloud:~$ sudo systemctl reload nginx.service alu5906@cloud:~$ sudo systemctl status nginx.service
+alu5906@cloud:~$ sudo systemctl reload nginx.service
+alu5906@cloud:~$ sudo systemctl status nginx.service
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: en
    Active: active (running) (Result: exit-code) since lun 2017-09-25 11:31:01 UT
