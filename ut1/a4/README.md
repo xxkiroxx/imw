@@ -452,7 +452,7 @@ def hello():
 
 ```
 
-Es necesario entrar de nuevo en el .virtualenv/now/bin/activate y instalar los paquetes necesarios para que se puede utilizar el programa creado por python.
+Es necesario entrar de nuevo en el `.virtualenv/now/bin/activate` y instalar los paquetes necesarios para que se puede utilizar el programa creado por python.
 
 Son necesarios los siguientes 3 paquetes o librerias.
 
