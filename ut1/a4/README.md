@@ -166,7 +166,7 @@ Successfully installed Jinja2-2.9.6 MarkupSafe-1.0 Werkzeug-0.12.2 click-6.7 fla
 
 ```
 
-- Creación de la carpeta now en `/home/alu5906/now`
+- Creación de la carpeta now en `/home/alu5906/now`<a name="10"></a>
 
 ```console
 
@@ -420,3 +420,100 @@ $ supervisorctl restart now
 - Se comprueba que la página del sitio Web 1 [http://php.alu5906.me](http://php.alu5906.me) funcione correctamente con el programa de python.
 
 - Se comprueba que la página del sitio Web 2 [http://now.alu5906.me](http://now.alu5906.me) funcione correctamente con el programa de python.
+
+
+## Anexo
+
+Queremos cambiar la hora del programa de now que creamos en el [sitio Web 2](#10), para cuando visualice la página web se vea la hora de las Islas Canarias.
+
+```console
+alu5906@cloud:~$ nano now/main.py
+```
+```python
+alu5906@cloud:~$ cat now/main.py
+import datetime
+import pytz
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    now = datetime.datetime.now(pytz.timezone("Atlantic/Canary"))
+    return """
+    <h1>Testing Python over Nginx</h1>
+    <h2> In Canary Islands</h2>  
+    Today is: {today}
+    <br>
+    Now is: {now}
+    """.format(
+        today=now.strftime("%d/%m/%Y"),
+        now=now().strftime("%H:%Mh")
+    )
+
+```
+
+Es necesario entrar de nuevo en el .virtualenv/now/bin/activate y instalar los paquetes necesarios para que se puede utilizar el programa creado por python.
+
+Son necesarios los siguientes 3 paquetes o librerias.
+
+- uwsgi
+- flask
+- pytz
+
+``` console
+alu5906@cloud:~$ source .virtualenvs/now/bin/activate
+(now) alu5906@cloud:~$ pip install pytz
+Collecting pytz
+  Downloading pytz-2017.2-py2.py3-none-any.whl (484kB)
+    100% |████████████████████████████████| 491kB 2.3MB/s
+Installing collected packages: pytz
+Successfully installed pytz-2017.2
+(now) alu5906@cloud:~$ pip install flask
+Requirement already satisfied: flask in ./.virtualenvs/now/lib/python3.6/site-packages
+Requirement already satisfied: Werkzeug>=0.7 in ./.virtualenvs/now/lib/python3.6/site-packages (from flask)
+Requirement already satisfied: itsdangerous>=0.21 in ./.virtualenvs/now/lib/python3.6/site-packages (from flask)
+Requirement already satisfied: click>=2.0 in ./.virtualenvs/now/lib/python3.6/site-packages (from flask)
+Requirement already satisfied: Jinja2>=2.4 in ./.virtualenvs/now/lib/python3.6/site-packages (from flask)
+Requirement already satisfied: MarkupSafe>=0.23 in ./.virtualenvs/now/lib/python3.6/site-packages (from Jinja2>=2.4->flask)
+(now) alu5906@cloud:~$ pip install uwsgi
+Requirement already satisfied: uwsgi in ./.virtualenvs/now/lib/python3.6/site-packages
+(now) alu5906@cloud:~$
+
+
+```
+
+Solo es necesario reiniciar el servicio de supervisorctl con la aplicación now.
+
+```console
+
+alu5906@cloud:~$ supervisorctl restart now
+now: stopped
+now: started
+alu5906@cloud:~$ supervisorctl status now
+now                              RUNNING   pid 26373, uptime 0:00:29
+
+
+```
+Ya tendremos configurado  el horario de las Islas Canarias en la paǵina Web.
+
+### Cambiar horario del sistema Operativo Ubuntu
+
+Tenemos que escribir el siguiente comando.
+
+```console
+
+alu5906@cloud:~$ sudo dpkg-reconfigure tzdata
+[sudo] password for alu5906:
+```
+![img](img/016.png)
+![img](img/017.png)
+
+```console
+
+Current default time zone: 'Atlantic/Canary'
+Local time is now:      Mon Oct 23 22:26:24 WEST 2017.
+Universal Time is now:  Mon Oct 23 21:26:24 UTC 2017.
+
+alu5906@cloud:~$
+
+```
