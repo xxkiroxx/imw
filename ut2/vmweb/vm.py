@@ -1,22 +1,36 @@
+from mysql import DB
+
+
 class VirtualMachine:
 
-    def __init__(self, name, ram=1, cpu=1.3, hdd=100, os="debian"):
-        self.name = name
-        self.ram = ram
-        self.cpu = cpu
-        self.hdd = hdd
-        self.os = os
-        self.status = 0
-        self.proc = list()
+    def __init__(self, id):
+        self.db = DB("roberto", "78619841e", "vmweb")
+        sql = f"select * from vmachine where id={id}"
+        print(sql)
+        query = self.db.query(sql)
+        self.id = query[0]["id"]
+        self.name = query[0]["name"]
+        self.ram = query[0]["ram"]
+        self.cpu = query[0]["cpu"]
+        self.hdd = query[0]["hdd"]
+        self.os = query[0]["os"]
+        self.status = query[0]["status"]
 
     def stop(self):
+        sql = "update vmachine set status=0 where id={self.id}"
+        self.db.run(sql)
+        sql = "delete from process where vmachine_id={self.id}"
+        self.db.run(sql)
         self.status = 0
-        self.proc = list()
 
     def start(self):
+        sql = "update vmachine set status=1 where id={self.id}"
+        self.db.run(sql)
         self.status = 1
 
     def suspend(self):
+        sql = "update vmachine set status=2 where id={self.id}"
+        self.db.run(sql)
         self.status = 2
 
     def reboot(self):
@@ -24,43 +38,45 @@ class VirtualMachine:
         self.start()
 
     def run(self, pid, ram, cpu, hdd):
-        self.proc.append(
-            {
-                "pid": pid,
-                "ram": ram,
-                "cpu": cpu,
-                "hdd": hdd
-            }
-        )
+        sql = f"insert into process (pid, ram, cpu, hdd, vmachine_id) values ({pid},{ram},{cpu},{hdd}, {self.id})"
+        self.db.run(sql)
+
+    def get_processes(self):
+        sql = "select * from process where vmachine_id={self.id}"
+        query = self.db.query(sql)
+        return query
+
+    def get_status(self):
+        sql = "select status from vmachine where id={self.id}"
+        query = self.db.query(sql)
+        status = query[0]["status"]
+        if status == 0:
+            return "Stopped"
+        elif status == 1:
+            return "Running"
+        elif status == 2:
+            return "Suspended"
 
     def ram_usage(self):
         ram = 0
-        for p in self.proc:
+        for p in self.get_processes():
             ram += p["ram"]
         percentage = ram * 100 / self.ram
         return round(percentage, 2)
 
     def cpu_usage(self):
         cpu = 0
-        for p in self.proc:
+        for p in self.get_processes():
             cpu += p["cpu"]
         percentage = cpu * 100 / self.cpu
         return round(percentage, 2)
 
     def hdd_usage(self):
         hdd = 0
-        for p in self.proc:
+        for p in self.get_processes():
             hdd += p["hdd"]
         percentage = hdd * 100 / self.hdd
         return round(percentage, 2)
-
-    def get_status(self):
-        if self.status == 0:
-            return "Stopped"
-        elif self.status == 1:
-            return "Running"
-        elif self.status == 2:
-            return "Suspended"
 
     def __str__(self):
         return """

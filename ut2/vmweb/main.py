@@ -4,8 +4,9 @@ from flask import redirect
 from flask import request
 from vm import VirtualMachine
 
+
 app = Flask(__name__)
-vmachine = VirtualMachine("Azkaban", 16, 3.7, 1000, "debian")
+vmachine = VirtualMachine(1)
 
 
 @app.route("/")
