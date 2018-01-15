@@ -45,14 +45,14 @@
      <a href="/run_process">Lanzar proceso</a>   
     </div>
     <table class="table2">
-        {% for proc in vmachine.proc%}
+        {% for proc in vmachine.get_processes() %}
         <tr class="tr0">
-            <td class="td1" colspan="3"><p class="p1">Proceso: {{ proc.pid }}</p></td>
+            <td class="td1" colspan="3"><p class="p1">Proceso: {{ proc["pid"] }}</p></td>
         </tr>
         <tr class="tr0">
-            <td class="td2"><p class="p2"> RAM: {{ proc.ram }}MB </p></td>
-            <td class="td2"><p class="p2"> CPU: {{ proc.cpu }}Ghz </p></td>
-            <td class="td2"><p class="p2"> HDD: {{ proc.hdd }}MB </p></td>
+            <td class="td2"><p class="p2"> RAM: {{ proc["ram"] }}MB </p></td>
+            <td class="td2"><p class="p2"> CPU: {{ proc["cpu"] }}Ghz </p></td>
+            <td class="td2"><p class="p2"> HDD: {{ proc["hdd"] }}MB </p></td>
         </tr>
 
         {% endfor %}
