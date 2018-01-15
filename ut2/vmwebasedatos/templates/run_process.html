@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Roberto</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+    </head>
+    <body>
+        <h1 class="primero">Lanzar Proceso</h1>
+
+        <form action="/run_process" method="POST">
+            <div>
+                <label for="pid">PID:</label>
+                <input type="text" name="pid"/>
+            </div>
+            <div>
+                <label for="ram">RAM:</label>
+                <input type="text" name="ram"/>
+            </div>
+            <div>
+                <label for="cpu">CPU:</label>
+                <input type="text" name="cpu"/>
+            </div>
+             <div>
+                <label for="cpu">HDD:</label>
+                <input type="text" name="hdd"/>
+            </div>
+            
+            <div class="button">
+                <button type="submit" class="button2">Ejecutar!</button>
+            </div>
+        </form>
+    </body>
+</html>
