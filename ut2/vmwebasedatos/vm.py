@@ -8,22 +8,20 @@ class VirtualMachine:
         sql = f"select * from vmachine where id={id}"
         print(sql)
         query = self.db.query(sql)
-        self.id = id
+        self.id = query[0]["id"]
         self.name = query[0]["name"]
         self.ram = query[0]["ram"]
         self.cpu = query[0]["cpu"]
         self.hdd = query[0]["hdd"]
         self.os = query[0]["os"]
         self.status = query[0]["status"]
-        self.proc = list()
 
     def stop(self):
-        sql = "delete from process where vmachine_id=1"
-        self.db.run(sql)
         sql = "update vmachine set status=0 where id=1"
         self.db.run(sql)
+        sql = "delete from process where vmachine_id=1"
+        self.db.run(sql)
         self.status = 0
-        self.proc = list()
 
     def start(self):
         sql = "update vmachine set status=1 where id=1"
@@ -40,7 +38,7 @@ class VirtualMachine:
         self.start()
 
     def run(self, pid, ram, cpu, hdd):
-        sql = f"insert into process (pid, ram, cpu, hdd, vmachine_id) values ({pid},{ram},{cpu},{hdd},{self.id})"
+        sql = f"insert into process (pid, ram, cpu, hdd, vmachine_id) values ({pid},{ram},{cpu},{hdd}, {self.id})"
         self.db.run(sql)
 
     def get_processes(self):

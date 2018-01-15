@@ -6,7 +6,7 @@
     <body>
     <div class="principal">
     <h1>{{ vmachine.name }}</h1>
-	<h2>{{ vmachine.os }}</h2>
+    <h2>{{ vmachine.os }}</h2>
         <div class="show_status">
            <p>{{ vmachine.get_status() }}</p> 
         </div>
@@ -15,44 +15,44 @@
             <a href="/change_status/1"><img src="/static/img/2.png"></a>
             <a href="/change_status/2"><img src="/static/img/3.png"></a>
         </div>
-	
-	<table class="table1">
-		<tr class="tr0">
-			<th colspan="2" class="th0">TOTAL</th>
-			<th class="th0">%USADO</th>
+    
+    <table class="table1">
+        <tr class="tr0">
+            <th colspan="2" class="th0">TOTAL</th>
+            <th class="th0">%USADO</th>
 
-		</tr>
-		<tr class="tr0">
-			<td class="td0">RAM</td>
-			<td class="td0">{{ vmachine.ram }}GB</td>
-			<td class="td0">{{ vmachine.ram_usage() }}%</td>
+        </tr>
+        <tr class="tr0">
+            <td class="td0">RAM</td>
+            <td class="td0">{{ vmachine.ram }}GB</td>
+            <td class="td0">{{ vmachine.ram_usage() }}%</td>
 
-		</tr>
-		<tr class="tr0">
-			<td class="td0">CPU</td>
-			<td class="td0">{{ vmachine.cpu }}Ghz</td>
-			<td class="td0"> {{ vmachine.cpu_usage() }}% </td>
+        </tr>
+        <tr class="tr0">
+            <td class="td0">CPU</td>
+            <td class="td0">{{ vmachine.cpu }}Ghz</td>
+            <td class="td0"> {{ vmachine.cpu_usage() }}% </td>
 
-		</tr>
-		<tr class="tr0">
-			<td class="td0">HDD</td>
-			<td class="td0">{{ vmachine.hdd }}MB</td>
-			<td class="td0">{{ vmachine.hdd_usage() }}% </td>
+        </tr>
+        <tr class="tr0">
+            <td class="td0">HDD</td>
+            <td class="td0">{{ vmachine.hdd }}MB</td>
+            <td class="td0">{{ vmachine.hdd_usage() }}% </td>
 
-		</tr>
-	</table>
-	<div class="div1">
+        </tr>
+    </table>
+    <div class="div1">
      <a href="/run_process">Lanzar proceso</a>   
     </div>
     <table class="table2">
-        {% for proc in vmachine.proc%}
+        {% for proc in vmachine.get_processes() %}
         <tr class="tr0">
-            <td class="td1" colspan="3"><p class="p1">Proceso: {{ proc.pid }}</p></td>
+            <td class="td1" colspan="3"><p class="p1">Proceso: {{ proc["pid"] }}</p></td>
         </tr>
         <tr class="tr0">
-            <td class="td2"><p class="p2"> RAM: {{ proc.ram }}MB </p></td>
-            <td class="td2"><p class="p2"> CPU: {{ proc.cpu }}Ghz </p></td>
-            <td class="td2"><p class="p2"> HDD: {{ proc.hdd }}MB </p></td>
+            <td class="td2"><p class="p2"> RAM: {{ proc["ram"] }}MB </p></td>
+            <td class="td2"><p class="p2"> CPU: {{ proc["cpu"] }}Ghz </p></td>
+            <td class="td2"><p class="p2"> HDD: {{ proc["hdd"] }}MB </p></td>
         </tr>
 
         {% endfor %}
