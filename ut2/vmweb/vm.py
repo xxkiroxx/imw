@@ -4,7 +4,7 @@ from mysql import DB
 class VirtualMachine:
 
     def __init__(self, id):
-        self.db = DB("roberto", "78619841e", "vmweb")
+        self.db = DB("roberto", "78619841Ee.", "vmweb")
         sql = f"select * from vmachine where id={id}"
         print(sql)
         query = self.db.query(sql)
@@ -17,19 +17,19 @@ class VirtualMachine:
         self.status = query[0]["status"]
 
     def stop(self):
-        sql = "update vmachine set status=0 where id={self.id}"
+        sql = f"update vmachine set status=0 where id={self.id}"
         self.db.run(sql)
-        sql = "delete from process where vmachine_id={self.id}"
+        sql = f"delete from process where vmachine_id={self.id}"
         self.db.run(sql)
         self.status = 0
 
     def start(self):
-        sql = "update vmachine set status=1 where id={self.id}"
+        sql = f"update vmachine set status=1 where id={self.id}"
         self.db.run(sql)
         self.status = 1
 
     def suspend(self):
-        sql = "update vmachine set status=2 where id={self.id}"
+        sql = f"update vmachine set status=2 where id={self.id}"
         self.db.run(sql)
         self.status = 2
 
@@ -42,12 +42,12 @@ class VirtualMachine:
         self.db.run(sql)
 
     def get_processes(self):
-        sql = "select * from process where vmachine_id={self.id}"
+        sql = f"select * from process where vmachine_id={self.id}"
         query = self.db.query(sql)
         return query
 
     def get_status(self):
-        sql = "select status from vmachine where id={self.id}"
+        sql = f"select status from vmachine where id={self.id}"
         query = self.db.query(sql)
         status = query[0]["status"]
         if status == 0:

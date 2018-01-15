@@ -7,7 +7,7 @@ class DB():
             host="localhost",
             port=3306,
             user="roberto",
-            password="78619841e",
+            password="78619841Ee.",
             db="vmweb",
             charset="utf8mb4",
             cursorclass=pymysql.cursors.DictCursor,
