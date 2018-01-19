@@ -2,6 +2,7 @@
 
 ![](img/000.png)
 
+
 - [1. Configuración Base de datos MySQL para WordPress](#1)
 - [2. Descargar WordPress desde su página Web](#2)
     - [2.1 Mover el directorio WordPress a `/usr/share`](#4)
@@ -9,9 +10,10 @@
     - [2.3 Configurar fichero de configuración `wp-config.php`](#6)
 - [3. Creación de Virtual Host con el Nginx](#7)
 - [4. Configuración del sitio WordPress vía Web](#8)
-- [5. Personalizar el Tema de WordPress](#9)
-- [6. Ajustar los permalinks a "Día y Nombre"](#10)
-- [7. Escribir un post con las estadísticas de uso de "WordPress"](#11)
+- [5. Acceder a WordPress](#3)
+- [6. Personalizar el Tema de WordPress](#9)
+- [7. Ajustar los permalinks a "Día y Nombre"](#10)
+- [8. Escribir un post con las estadísticas de uso de "WordPress"](#11)
 
 
 ## 1. Configuración Base de datos MySQL para WordPress <a name=1></a>
@@ -136,7 +138,7 @@ Ya tenemos instalado y configurado nuestro `WordPress` en nuestro servidor `Ubun
 
 ![](img/021.png)
 
-## 5 Acceder a WordPress
+## 5. Acceder a WordPress <a name=3></a>
 
 Solo tenemos que escribir en nuestro navegador la siguiente url [`wordpress.alu5906.me/wp-login.php`](http://wordpress.alu5906.me/wp-login.php)
 
@@ -157,6 +159,10 @@ Solo tenemos que ir a cambiar tu tema por completo.
 - Seleccionamos un tema en mi caso es el siguiente.
 
 ![](img/024.png)
+
+- Vamos a `Temas` y Seleccionamos el tema descargado
+
+![](img/031.png)
 
 ## 7. Ajustar los permalinks a "Día y Nombre" <a name=10></a>
 
