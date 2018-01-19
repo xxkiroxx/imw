@@ -107,29 +107,70 @@ Tenemos que crear un nuevo virtual host en `nginx` para la instalación de nuest
 
 ![](img/016.png)
 
-## 4. Configuración del sitio WordPress vía Web <a name=8></a>
-
-## 5. Personalizar el Tema de WordPress <a name=9></a>
-
-## 6. Ajustar los permalinks a "Día y Nombre" <a name=10></a>
-
-## 7. Escribir un post con las estadísticas de uso de "WordPress" <a name=11></a>
-
-
-
-
+- Comprobamos que está creado el enlace simbólico.
 
 ![](img/017.png)
+
+- Tenemos que reiniciar o recargar el servicio de `nginx.service`
+
 ![](img/018.png)
+
+## 4. Configuración del sitio WordPress vía Web <a name=8></a>
+
+Solo tenemos que ir a nuestro navegador y escribimos en el url [`wordpress.alu5906.me`](http://wordpress.alu5906.me).
+
+Nos saldrá qué tenemos que seleccionar el idioma, en nuestro caso el `español`, le damos continuar.
+
 ![](img/019.png)
+
+Tenemos un formulario con la siguiente información.
+
+- Título del sitio: `Establecer el nombre que nosotros queramos`.
+- Nombre de Usuario: `Establecemos el nombre para el administrador de WordPress`
+- Contraseña: `Contraseña para el usuario administrador`
+- Correo: `Escribir nuestro correo electrónico`
+
 ![](img/020.png)
+
+Ya tenemos instalado y configurado nuestro `WordPress` en nuestro servidor `Ubuntu`.
+
 ![](img/021.png)
+
+## 5 Acceder a WordPress
+
+Solo tenemos que escribir en nuestro navegador la siguiente url [`wordpress.alu5906.me/wp-login.php`](http://wordpress.alu5906.me/wp-login.php)
+
+- Solo escribimos el usuario `admin` con su contraseña.
+
 ![](img/022.png)
+
+Accedemos a nuestro `WordPress` aquí podemos modificar todo.
+
 ![](img/023.png)
+
+## 6. Personalizar el Tema de WordPress <a name=9></a>
+
+Solo tenemos que ir a cambiar tu tema por completo.
+
+![](img/023.png)
+
+- Seleccionamos un tema en mi caso es el siguiente.
+
 ![](img/024.png)
-![](img/025.png)
+
+## 7. Ajustar los permalinks a "Día y Nombre" <a name=10></a>
+
+Tenemos que ir a `Ajustes -> enlaces permanentes`
+
+![](img/029.png)
+
+- Seleccionamos el `día y nombre`
+
+![](img/030.png)
+
+## 8. Escribir un post con las estadísticas de uso de "WordPress" <a name=11></a>
+
+
 ![](img/026.png)
 ![](img/027.png)
 ![](img/028.png)
-![](img/029.png)
-![](img/030.png)
