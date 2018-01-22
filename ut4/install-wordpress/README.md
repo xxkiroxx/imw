@@ -11,9 +11,11 @@
 - [3. Creación de Virtual Host con el Nginx](#7)
 - [4. Configuración del sitio WordPress vía Web](#8)
 - [5. Acceder a WordPress](#3)
-- [6. Personalizar el Tema de WordPress](#9)
-- [7. Ajustar los permalinks a "Día y Nombre"](#10)
-- [8. Escribir un post con las estadísticas de uso de "WordPress"](#11)
+- [6. Límite de tamaño en la subida de archivos](#13)
+- [7. Estructura de ficheros](#12)
+- [8. Personalizar el Tema de WordPress](#9)
+- [9. Ajustar los permalinks a "Día y Nombre"](#10)
+- [10. Escribir un post con las estadísticas de uso de "WordPress"](#11)
 
 
 ## 1. Configuración Base de datos MySQL para WordPress <a name=1></a>
@@ -117,6 +119,10 @@ Tenemos que crear un nuevo virtual host en `nginx` para la instalación de nuest
 
 ![](img/018.png)
 
+- Ahora debemos indicar a nginx que procese estar URLs:
+
+![](img/034.png)
+
 ## 4. Configuración del sitio WordPress vía Web <a name=8></a>
 
 Solo tenemos que ir a nuestro navegador y escribimos en el url [`wordpress.alu5906.me`](http://wordpress.alu5906.me).
@@ -150,7 +156,220 @@ Accedemos a nuestro `WordPress` aquí podemos modificar todo.
 
 ![](img/023.png)
 
-## 6. Personalizar el Tema de WordPress <a name=9></a>
+## 6. Límite de tamaño en la subida de archivos<a name=13></a>
+
+Por defecto, el límite de subida de archivos para aplicaciones PHP suele ser bastante bajo, en torno a los 2MB.
+
+![](img/035.png)
+
+Reiniciamos el servicio de php7
+
+![](img/036.png)
+
+Además de esto, debemos añadir una línea en el fichero de configuración de Nginx:
+
+![](img/037.png)
+
+Reiniciamos el servicio de nginx.
+
+![](img/038.png)
+
+## 7. Estructura de ficheros<a name=12></a>
+
+```console
+alu5906@cloud:~$ tree -d /usr/share/wordpress/
+/usr/share/wordpress/
+├── wp-admin
+│   ├── css
+│   │   └── colors
+│   │       ├── blue
+│   │       ├── coffee
+│   │       ├── ectoplasm
+│   │       ├── light
+│   │       ├── midnight
+│   │       ├── ocean
+│   │       └── sunrise
+│   ├── images
+│   ├── includes
+│   ├── js
+│   │   └── widgets
+│   ├── maint
+│   ├── network
+│   └── user
+├── wp-content
+│   ├── languages
+│   │   ├── plugins
+│   │   └── themes
+│   ├── plugins
+│   │   └── akismet
+│   │       ├── _inc
+│   │       │   └── img
+│   │       └── views
+│   ├── themes
+│   │   ├── appointment
+│   │   │   ├── css
+│   │   │   │   └── font-awesome
+│   │   │   │       ├── css
+│   │   │   │       ├── fonts
+│   │   │   │       ├── less
+│   │   │   │       └── scss
+│   │   │   ├── functions
+│   │   │   │   ├── appointment-info
+│   │   │   │   │   ├── css
+│   │   │   │   │   ├── img
+│   │   │   │   │   ├── js
+│   │   │   │   │   └── sections
+│   │   │   │   ├── breadcrumbs
+│   │   │   │   ├── custom-controls
+│   │   │   │   │   └── select
+│   │   │   │   ├── customizer
+│   │   │   │   ├── font
+│   │   │   │   ├── lang
+│   │   │   │   ├── menu
+│   │   │   │   ├── scripts
+│   │   │   │   └── widgets
+│   │   │   ├── images
+│   │   │   │   ├── color
+│   │   │   │   └── slide
+│   │   │   └── js
+│   │   │       └── menu
+│   │   ├── appointment-red
+│   │   │   ├── css
+│   │   │   ├── images
+│   │   │   └── languages
+│   │   ├── fashify
+│   │   │   ├── assets
+│   │   │   │   ├── css
+│   │   │   │   ├── fonts
+│   │   │   │   ├── js
+│   │   │   │   └── sass
+│   │   │   ├── inc
+│   │   │   └── template-parts
+│   │   ├── twentyfifteen
+│   │   │   ├── css
+│   │   │   ├── genericons
+│   │   │   ├── inc
+│   │   │   └── js
+│   │   ├── twentyseventeen
+│   │   │   ├── assets
+│   │   │   │   ├── css
+│   │   │   │   ├── images
+│   │   │   │   └── js
+│   │   │   ├── inc
+│   │   │   └── template-parts
+│   │   │       ├── footer
+│   │   │       ├── header
+│   │   │       ├── navigation
+│   │   │       ├── page
+│   │   │       └── post
+│   │   └── twentysixteen
+│   │       ├── css
+│   │       ├── genericons
+│   │       ├── inc
+│   │       ├── js
+│   │       └── template-parts
+│   ├── upgrade
+│   └── uploads
+│       └── 2018
+│           └── 01
+└── wp-includes
+    ├── certificates
+    ├── css
+    ├── customize
+    ├── fonts
+    ├── ID3
+    ├── images
+    │   ├── crystal
+    │   ├── media
+    │   ├── smilies
+    │   └── wlw
+    ├── IXR
+    ├── js
+    │   ├── codemirror
+    │   ├── crop
+    │   ├── imgareaselect
+    │   ├── jcrop
+    │   ├── jquery
+    │   │   └── ui
+    │   ├── mediaelement
+    │   │   └── renderers
+    │   ├── plupload
+    │   ├── swfupload
+    │   ├── thickbox
+    │   └── tinymce
+    │       ├── langs
+    │       ├── plugins
+    │       │   ├── charmap
+    │       │   ├── colorpicker
+    │       │   ├── compat3x
+    │       │   │   └── css
+    │       │   ├── directionality
+    │       │   ├── fullscreen
+    │       │   ├── hr
+    │       │   ├── image
+    │       │   ├── link
+    │       │   ├── lists
+    │       │   ├── media
+    │       │   ├── paste
+    │       │   ├── tabfocus
+    │       │   ├── textcolor
+    │       │   ├── wordpress
+    │       │   ├── wpautoresize
+    │       │   ├── wpdialogs
+    │       │   ├── wpeditimage
+    │       │   ├── wpemoji
+    │       │   ├── wpgallery
+    │       │   ├── wplink
+    │       │   ├── wptextpattern
+    │       │   └── wpview
+    │       ├── skins
+    │       │   ├── lightgray
+    │       │   │   ├── fonts
+    │       │   │   └── img
+    │       │   └── wordpress
+    │       │       └── images
+    │       ├── themes
+    │       │   ├── inlite
+    │       │   └── modern
+    │       └── utils
+    ├── pomo
+    ├── random_compat
+    ├── Requests
+    │   ├── Auth
+    │   ├── Cookie
+    │   ├── Exception
+    │   │   ├── HTTP
+    │   │   └── Transport
+    │   ├── Proxy
+    │   ├── Response
+    │   ├── Transport
+    │   └── Utility
+    ├── rest-api
+    │   ├── endpoints
+    │   └── fields
+    ├── SimplePie
+    │   ├── Cache
+    │   ├── Content
+    │   │   └── Type
+    │   ├── Decode
+    │   │   └── HTML
+    │   ├── HTTP
+    │   ├── Net
+    │   ├── Parse
+    │   └── XML
+    │       └── Declaration
+    ├── Text
+    │   └── Diff
+    │       ├── Engine
+    │       └── Renderer
+    ├── theme-compat
+    └── widgets
+
+185 directories
+alu5906@cloud:~$
+```
+
+## 8. Personalizar el Tema de WordPress <a name=9></a>
 
 Solo tenemos que ir a cambiar tu tema por completo.
 
@@ -164,7 +383,7 @@ Solo tenemos que ir a cambiar tu tema por completo.
 
 ![](img/031.png)
 
-## 7. Ajustar los permalinks a "Día y Nombre" <a name=10></a>
+## 9. Ajustar los permalinks a "Día y Nombre" <a name=10></a>
 
 Tenemos que ir a `Ajustes -> enlaces permanentes`
 
@@ -174,9 +393,14 @@ Tenemos que ir a `Ajustes -> enlaces permanentes`
 
 ![](img/030.png)
 
-## 8. Escribir un post con las estadísticas de uso de "WordPress" <a name=11></a>
+## 10. Escribir un post con las estadísticas de uso de "WordPress" <a name=11></a>
 
+Abrimos el wordpress con el usuario `administrador` y vamos a `entradas -> añadir nueva`
 
-![](img/026.png)
-![](img/027.png)
-![](img/028.png)
+Creamos una nuevo post llamado estadíticas de WordPress.
+
+![](img/040.png)
+
+Luego visualizamos el resultado en la página.
+
+![](img/039.png)
