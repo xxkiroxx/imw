@@ -31,7 +31,7 @@ Ya lo tenemos descargado, para instalar el plugins en el `WordPress` vamos a `Aj
 
 Seleccionamos `Examinar` y buscamos en nuestro disco duro el plugins descargado.
 
-El `Plugin` debe subirse comprimido. No necesitas descomprimirlo.
+El `Plugins` debe subirse comprimido. No necesitas descomprimirlo.
 
 ![](img/010.png)
 
